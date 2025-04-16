@@ -18,3 +18,6 @@ pixels = img.load()                # Marrim qasjen te pikslat
 width, height = img.size           # Madhesia e imazhit
 grid_size = width // block_size    # Sa blloqe ka per nje rresht ose kolone
 
+# Ketu fillojme me kriju tekstin e dekriptum//inputi mu marr prej konsoles
+decrypted_text = ""
+
