@@ -15,3 +15,26 @@ block_size = 20       # Madhesia e çdo blloku ngjyrash ne piksel (20x20)
 grid_size = 10        # Madhesia e rrjetes, dmth 10 rreshta me 10 kolona
 img_size = grid_size * block_size  #llogarit madhesinë totale te fotos në piksel
 padding_color = (255, 255, 255)    # Ngjyra per padding - e bardhe
+# Llogarit sa blloqe ka gjithsej ne foto
+total_blocks = grid_size * grid_size
+
+# Llogarit ku me fillu tekstin qe me qene ne mes të imazhit
+start_index = (total_blocks - text_len) // 2
+
+# Krijon ni imazh te ri, komplet te bardhe
+img = Image.new('RGB', (img_size, img_size), color=padding_color)
+pixels = img.load()  # Merr qasjen per me ndryshu pikselat e imazhit
+
+# Qetu po i vendosim shkronjat nje nga nje prej qendres
+for i, char in enumerate(text):
+    pos = start_index + i          # Pozita prej ku fillon vendosja
+    row = pos // grid_size         # Llogarit rreshtin
+    col = pos % grid_size          # Llogarit kolonen
+
+    start_x = col * block_size     # Koordinata x e fillimit per bllokun
+    start_y = row * block_size     # Koordinata y e fillimit per bllokun
+
+    # Merr ngjyren per shkronjen perkatese prej key.json
+    color_hex = key.get(char.upper(), "#FFFFFF")
+    # Kthen ngjyren prej hexadecimal në RGB format
+    color_rgb = tuple(int(color_hex.lstrip("#")[j:j+2], 16) for j in (0, 2, 4))
