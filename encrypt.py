@@ -38,3 +38,6 @@ for i, char in enumerate(text):
     color_hex = key.get(char.upper(), "#FFFFFF")
     # Kthen ngjyren prej hexadecimal në RGB format
     color_rgb = tuple(int(color_hex.lstrip("#")[j:j+2], 16) for j in (0, 2, 4))
+# Ruan imazhin e krijum
+img.save("output.png")
+print("Fotoja u krijua me sukses si ""output.png"".")  # Tregon qe gjithçka ka perfundu me sukse
