@@ -26,3 +26,24 @@ for row in range(grid_size):
     for col in range(grid_size):
         start_x = col * block_size     # Koordinata X ku fillon blloku
         start_y = row * block_size     # Koordinata Y ku fillon blloku
+
+        # Marrim ngjyren e pikes qe eshte ne mes te bllokut
+        sample_x = start_x + block_size // 2
+        sample_y = start_y + block_size // 2
+        color_rgb = pixels[sample_x, sample_y]
+        # Nese e hasim padding-un (ngjyren e bardhe), e kalojme qet bllok
+        if color_rgb == padding_color:
+            continue
+
+        # E konvertojme ngjyren RGB ne hexadecimal format
+        color_hex = '#%02x%02x%02x' % color_rgb
+
+        # Marrim karakterin perkates per qet ngjyre – nese nuk ekziston, vendos '?'
+        char = reverse_key.get(color_hex.upper(), '?')
+
+        # Shtojme karakterin ne tekstin final te dekriptuar
+        decrypted_text += char
+
+# Printojme tekstin e dekriptuar ne fund
+print("Teksti i dekriptuar:")
+print(decrypted_text)
