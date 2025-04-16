@@ -40,6 +40,7 @@ for i, char in enumerate(text):
     # Kthen ngjyren prej hexadecimal në RGB format
     color_rgb = tuple(int(color_hex.lstrip("#")[j:j+2], 16) for j in (0, 2, 4))
 
+
     # Mbush krejt bllokun 20x20 me ngjyren e shkronjes
     for x in range(start_x, start_x + block_size):
         for y in range(start_y, start_y + block_size):
@@ -48,3 +49,6 @@ for i, char in enumerate(text):
 # Ruan imazhin e krijum
 img.save("output.png")
 print("Fotoja u krijua me sukses si ""output.png"".")  # Tregon qe gjithçka ka perfundu me sukses
+
+
+
