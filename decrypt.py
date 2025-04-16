@@ -21,8 +21,3 @@ grid_size = width // block_size    # Sa blloqe ka per nje rresht ose kolone
 # Ketu fillojme me kriju tekstin e dekriptum//inputi mu marr prej konsoles
 decrypted_text = ""
 
-# E bojmë loop per secilin rresht e kolone ne rrjeten e blloqeve
-for row in range(grid_size):
-    for col in range(grid_size):
-        start_x = col * block_size     # Koordinata X ku fillon blloku
-        start_y = row * block_size     # Koordinata Y ku fillon blloku
